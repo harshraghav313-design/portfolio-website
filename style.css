@@ -1,90 +1,407 @@
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#414b56;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-/* HEADER */
-
-header{
-    background:#222;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
+body {
+    font-family: Arial, sans-serif;
+    background: #111827;
+    color: white;
 }
 
-.logo{
-    color:white;
-    font-size:30px;
-    font-weight:bold;
+
+/* NAVBAR */
+
+header {
+    height: 70px;
+    background: #0b0f19;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 50px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    font-size:18px;
+.logo {
+    font-size: 25px;
+    font-weight: bold;
 }
 
-nav a:hover{
-    color:#00bfff;
+nav {
+    display: flex;
+    gap: 30px;
 }
 
-/* MAIN CARD */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
 
-.container{
-    width:80%;
-    max-width:700px;
-    margin:40px auto;
-    background:rgb(125,70,70);
-    border-radius:15px;
-    box-shadow:0 0 20px rgba(0,0,0,.15);
-    padding:30px;
-    text-align:center;
+    transition: 0.3s;
 }
 
-img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    object-fit:cover;
+nav a:hover {
+    color: #60a5fa;
 }
 
-h1{
-    color:#edeef0;
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 60px 8%;
+
+    background: linear-gradient(
+        135deg,
+        #1f2937,
+        #374151
+    );
 }
 
-h2{
-    color:#f3f3f8;
+.hero-text {
+    max-width: 600px;
 }
 
-ul{
-    list-style:none;
-    padding:0;
+.welcome {
+    color: #60a5fa;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
-li{
-    background:#69bb5e;
-    color:#000;
-    margin:10px;
-    padding:12px;
-    border-radius:8px;
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
 }
 
-button{
-    background:#ffffff;
-    color:#000;
-    border:none;
-    padding:12px 20px;
-    border-radius:8px;
-    font-size:18px;
-    cursor:pointer;
-    margin:5px;
-    transition:0.3s;
+.hero h1 span {
+    color: #60a5fa;
 }
 
-button:hover{
-    background:#146c43;
-    color:white;
+.hero h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.hero-text > p:not(.welcome) {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #d1d5db;
+}
+
+.hero-image img {
+    width: 320px;
+    height: 320px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 6px solid #60a5fa;
+
+    box-shadow: 0 0 40px rgba(96, 165, 250, 0.4);
+}
+
+
+/* BUTTONS */
+
+.hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn,
+button {
+    padding: 13px 25px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #60a5fa;
+    color: #111827;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.btn:hover,
+button:hover {
+    transform: translateY(-3px);
+    background: #93c5fd;
+}
+
+.second-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid #60a5fa;
+}
+
+
+/* GENERAL SECTION */
+
+.section {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+
+    font-size: 35px;
+
+    margin-bottom: 50px;
+}
+
+
+/* ABOUT */
+
+.about-card {
+    max-width: 900px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    background: #1f2937;
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.about-card img {
+    width: 180px;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+.about-card h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    color: #d1d5db;
+    line-height: 1.7;
+
+    margin-bottom: 10px;
+}
+
+
+/* SKILLS */
+
+.skills {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.skill-card {
+    background: #1f2937;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+}
+
+.skill-card h3 {
+    color: #60a5fa;
+
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: #d1d5db;
+}
+
+
+/* PROJECTS */
+
+.projects {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.project-card {
+    background: #1f2937;
+
+    padding: 35px;
+
+    border-radius: 15px;
+}
+
+.project-card h3 {
+    color: #60a5fa;
+
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #d1d5db;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+
+    background: #0f172a;
+}
+
+.contact p {
+    color: #d1d5db;
+
+    margin-bottom: 25px;
+}
+
+.contact button {
+    margin: 5px;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    background: #080c14;
+
+    color: #9ca3af;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+
+        text-align: center;
+
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .about-card {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .skills {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    header {
+        height: auto;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
 }
