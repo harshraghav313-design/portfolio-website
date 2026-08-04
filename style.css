@@ -728,3 +728,216 @@ footer {
     }
 
 }
+/* =========================
+   AI ASSISTANT
+========================= */
+
+.ai-button {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #60a5fa;
+
+    color: #0f172a;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+
+    z-index: 2000;
+
+}
+
+
+.ai-button:hover {
+
+    transform: scale(1.08);
+
+}
+
+
+.ai-chat {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 95px;
+
+    width: 350px;
+
+    max-width: calc(100vw - 40px);
+
+    height: 480px;
+
+    background: #0f172a;
+
+    border: 1px solid #334155;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+
+    display: none;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    z-index: 2000;
+
+}
+
+
+.ai-header {
+
+    padding: 18px;
+
+    background: #1e293b;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.ai-header strong {
+
+    color: #60a5fa;
+
+}
+
+
+.ai-header button {
+
+    background: transparent;
+
+    color: white;
+
+    padding: 0;
+
+    font-size: 25px;
+
+}
+
+
+.ai-messages {
+
+    flex: 1;
+
+    padding: 15px;
+
+    overflow-y: auto;
+
+}
+
+
+.ai-message {
+
+    padding: 10px 13px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+
+}
+
+
+.ai-message.bot {
+
+    background: #1e293b;
+
+    color: #e2e8f0;
+
+}
+
+
+.ai-message.user {
+
+    background: #60a5fa;
+
+    color: #0f172a;
+
+    margin-left: 30px;
+
+}
+
+
+.ai-input-area {
+
+    display: flex;
+
+    gap: 8px;
+
+    padding: 12px;
+
+    background: #1e293b;
+
+}
+
+
+.ai-input-area input {
+
+    flex: 1;
+
+    padding: 11px;
+
+    border-radius: 7px;
+
+    border: 1px solid #475569;
+
+    background: #0f172a;
+
+    color: white;
+
+    outline: none;
+
+}
+
+
+.ai-input-area button {
+
+    padding: 10px 15px;
+
+}
+
+
+@media (max-width: 500px) {
+
+    .ai-chat {
+
+        right: 15px;
+        bottom: 90px;
+
+        width: calc(100vw - 30px);
+
+        height: 450px;
+
+    }
+
+    .ai-button {
+
+        right: 15px;
+        bottom: 15px;
+
+    }
+
+}
