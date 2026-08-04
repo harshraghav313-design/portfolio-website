@@ -869,6 +869,262 @@
     </div>
 
 </div>
+<script>
+/* =========================
+   AI ASSISTANT
+========================= */
+
+const aiButton = document.getElementById("aiButton");
+const aiChat = document.getElementById("aiChat");
+const closeAI = document.getElementById("closeAI");
+const aiInput = document.getElementById("aiInput");
+const aiSend = document.getElementById("aiSend");
+const aiMessages = document.getElementById("aiMessages");
+
+
+/* OPEN AI CHAT */
+
+aiButton.addEventListener("click", function () {
+
+    aiChat.classList.add("active");
+
+    aiInput.focus();
+
+});
+
+
+/* CLOSE AI CHAT */
+
+closeAI.addEventListener("click", function () {
+
+    aiChat.classList.remove("active");
+
+});
+
+
+/* SEND MESSAGE */
+
+function sendAIMessage() {
+
+    const userText = aiInput.value.trim();
+
+    if (userText === "") {
+        return;
+    }
+
+
+    /* USER MESSAGE */
+
+    const userMessage = document.createElement("div");
+
+    userMessage.className = "ai-message user";
+
+    userMessage.textContent = userText;
+
+    aiMessages.appendChild(userMessage);
+
+
+    /* CLEAR INPUT */
+
+    aiInput.value = "";
+
+
+    /* AI RESPONSE */
+
+    setTimeout(function () {
+
+        const botMessage = document.createElement("div");
+
+        botMessage.className = "ai-message bot";
+
+        botMessage.textContent =
+            getAIResponse(userText);
+
+        aiMessages.appendChild(botMessage);
+
+
+        /* SCROLL TO BOTTOM */
+
+        aiMessages.scrollTop =
+            aiMessages.scrollHeight;
+
+    }, 500);
+
+}
+
+
+/* SEND BUTTON */
+
+aiSend.addEventListener("click", function () {
+
+    sendAIMessage();
+
+});
+
+
+/* ENTER KEY */
+
+aiInput.addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter") {
+
+        event.preventDefault();
+
+        sendAIMessage();
+
+    }
+
+});
+
+
+/* =========================
+   AI RESPONSES
+========================= */
+
+function getAIResponse(message) {
+
+    const text =
+        message.toLowerCase();
+
+
+    /* HELLO */
+
+    if (
+        text.includes("hello") ||
+        text.includes("hi") ||
+        text.includes("hey")
+    ) {
+
+        return "Hi! 👋 I'm Harsh's AI Assistant. How can I help you?";
+
+    }
+
+
+    /* ABOUT */
+
+    if (
+        text.includes("about") ||
+        text.includes("harsh")
+    ) {
+
+        return "Harsh Raghav is a BCA student and an aspiring Full Stack Developer. He is currently learning Web Development and exploring AI development.";
+
+    }
+
+
+    /* SKILLS */
+
+    if (
+        text.includes("skill") ||
+        text.includes("technolog")
+    ) {
+
+        return "Harsh's current skills include HTML, CSS, JavaScript and Git & GitHub. He is also learning Full Stack Development and AI Development.";
+
+    }
+
+
+    /* PROJECTS */
+
+    if (
+        text.includes("project")
+    ) {
+
+        return "Harsh's current project is his personal portfolio website, built using HTML, CSS, JavaScript and GitHub. More projects are coming soon 🚀.";
+
+    }
+
+
+    /* WEB DEVELOPMENT */
+
+    if (
+        text.includes("web development") ||
+        text.includes("web dev")
+    ) {
+
+        return "Harsh is currently improving his HTML, CSS and JavaScript skills through practical projects and is working toward becoming a Full Stack Developer.";
+
+    }
+
+
+    /* FULL STACK */
+
+    if (
+        text.includes("full stack") ||
+        text.includes("backend")
+    ) {
+
+        return "Harsh's long-term goal is to become a Full Stack Developer by learning frontend, backend and databases.";
+
+    }
+
+
+    /* AI */
+
+    if (
+        text.includes("ai") ||
+        text.includes("artificial intelligence")
+    ) {
+
+        return "Harsh is currently exploring AI Development and learning how AI can be integrated into modern web applications. 🤖";
+
+    }
+
+
+    /* GITHUB */
+
+    if (
+        text.includes("github")
+    ) {
+
+        return "You can find Harsh's portfolio project on GitHub. 🚀";
+
+    }
+
+
+    /* CONTACT */
+
+    if (
+        text.includes("contact") ||
+        text.includes("email") ||
+        text.includes("hire")
+    ) {
+
+        return "You can contact Harsh using the contact form on this portfolio. Scroll down to the Let's Connect section.";
+
+    }
+
+
+    /* LEARNING */
+
+    if (
+        text.includes("learn") ||
+        text.includes("learning")
+    ) {
+
+        return "Harsh is currently learning Web Development, Full Stack Development and AI Development. 📚";
+
+    }
+
+
+    /* THANK YOU */
+
+    if (
+        text.includes("thank") ||
+        text.includes("thanks")
+    ) {
+
+        return "You're welcome! 😊 Feel free to ask me anything about Harsh's portfolio.";
+
+    }
+
+
+    /* DEFAULT */
+
+    return "I'm still learning 🤖. Try asking me about Harsh's skills, projects, learning journey, Web Development, Full Stack Development or AI.";
+
+}
+</script>
 
 </body>
 
