@@ -4,65 +4,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh Raghav</title>
+
+    <title>Harsh Raghav | Web Developer</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
     <header>
         <div class="logo">Harsh Raghav</div>
 
         <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Skills</a>
-            <a href="#">Projects</a>
-            <a href="#">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
-    <section class="hero">
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
 
         <div class="hero-text">
-            <h1>Hi, I'm Harsh Raghav 👋</h1>
 
-            <p>Future Full Stack Developer & AI Builder</p>
+            <p class="welcome">WELCOME TO MY PORTFOLIO</p>
 
-            <button>Explore My Work</button>
+            <h1>
+                Hi, I'm <span>Harsh Raghav</span> 👋
+            </h1>
+
+            <h2>Future Full Stack Developer & AI Builder 🚀</h2>
+
+            <p>
+                I am learning Web Development and building modern,
+                responsive websites using HTML, CSS and JavaScript.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">Explore My Work</a>
+                <a href="#contact" class="btn second-btn">Contact Me</a>
+            </div>
+
         </div>
+
 
         <div class="hero-image">
-            <img src="myphoto.enc" alt="Harsh Raghav"
-        
+
+            <img src="myphoto.jpeg" alt="Harsh Raghav">
+
         </div>
-    
+
     </section>
 
-    <div class="container">
 
-        <img src="myphoto.enc" alt="Profile">
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
 
-        <h1>Harsh Raghav</h1>
-        <h2>Future Master Web Developer 🚀</h2>
+        <h2 class="section-title">About Me</h2>
 
-        <p>Hello! I am learning HTML, CSS and JavaScript. Website making.</p>
+        <div class="about-card">
 
-        <h3>My Skills</h3>
+            <img src="myphoto.jpeg" alt="Harsh Raghav">
 
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Website Creator</li>
-        </ul>
+            <div>
+                <h2>Harsh Raghav</h2>
+
+                <p>
+                    Hello! I am Harsh Raghav. I am learning HTML, CSS,
+                    JavaScript and Web Development. My goal is to become
+                    a Full Stack Developer and AI Builder.
+                </p>
+
+                <p>
+                    I enjoy creating websites, learning new technologies
+                    and working on new projects.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills">
+
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Web Structure</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>CSS</h3>
+                <p>Design & Responsive Layout</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>JavaScript</h3>
+                <p>Web Interactivity</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Web Development</h3>
+                <p>Website Creation</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="projects">
+
+            <div class="project-card">
+
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    My personal portfolio website created using
+                    HTML and CSS.
+                </p>
+
+                <button onclick="projectMessage()">
+                    View Project
+                </button>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>Future Project 🚀</h3>
+
+                <p>
+                    More exciting web development projects
+                    coming soon.
+                </p>
+
+                <button onclick="projectMessage()">
+                    Coming Soon
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact" id="contact">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <p>
+            Interested in working together? Let's connect!
+        </p>
 
         <button onclick="contactMe()">Contact Me</button>
+
         <button onclick="hireMe()">Hire Me</button>
 
-    </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Harsh Raghav. All Rights Reserved.
+        </p>
+
+    </footer>
+
 
     <script>
+
         function contactMe() {
             alert("Thanks for contacting me! 🚀");
         }
@@ -70,6 +200,11 @@
         function hireMe() {
             alert("Welcome to my World! 😎");
         }
+
+        function projectMessage() {
+            alert("Project details coming soon! 🚀");
+        }
+
     </script>
 
 </body>
