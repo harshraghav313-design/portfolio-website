@@ -1,5 +1,5 @@
 /* =========================
-   GLOBAL
+   RESET
 ========================= */
 
 * {
@@ -139,6 +139,7 @@ nav a:hover {
 
 .hero-image img {
     width: 320px;
+
     height: 320px;
 
     object-fit: cover;
@@ -149,6 +150,8 @@ nav a:hover {
 
     box-shadow:
         0 0 30px rgba(96, 165, 250, 0.25);
+
+    display: block;
 }
 
 
@@ -204,6 +207,12 @@ button:hover {
     border: 2px solid #60a5fa;
 }
 
+.second-btn:hover {
+    background: #60a5fa;
+
+    color: #0f172a;
+}
+
 
 /* =========================
    GENERAL SECTION
@@ -244,15 +253,21 @@ button:hover {
     border-radius: 18px;
 
     border: 1px solid #334155;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .about-card img {
     width: 180px;
+
     height: 180px;
 
     object-fit: cover;
 
     border-radius: 50%;
+
+    flex-shrink: 0;
 }
 
 .about-card h2 {
@@ -277,7 +292,8 @@ button:hover {
 .skills {
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
 
     gap: 20px;
 
@@ -304,6 +320,9 @@ button:hover {
     transform: translateY(-7px);
 
     border-color: #60a5fa;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .skill-icon {
@@ -324,7 +343,7 @@ button:hover {
 
 
 /* =========================
-   CURRENTLY LEARNING
+   LEARNING
 ========================= */
 
 .learning {
@@ -338,7 +357,8 @@ button:hover {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 20px;
 }
@@ -358,7 +378,7 @@ button:hover {
 }
 
 .learning-card > div:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
 
     border-color: #60a5fa;
 }
@@ -385,7 +405,8 @@ button:hover {
 .projects {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 25px;
 
@@ -410,6 +431,9 @@ button:hover {
     transform: translateY(-5px);
 
     border-color: #60a5fa;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .project-number {
@@ -456,6 +480,8 @@ button:hover {
     border-radius: 5px;
 
     font-size: 13px;
+
+    border: 1px solid #334155;
 }
 
 .project-btn {
@@ -493,14 +519,16 @@ button:hover {
     background: #0b1120;
 }
 
-.contact > p {
+.contact p {
     color: #cbd5e1;
 
     margin-bottom: 25px;
 }
 
 
-/* CONTACT FORM */
+/* =========================
+   CONTACT FORM
+========================= */
 
 .contact-form {
     max-width: 650px;
@@ -516,6 +544,9 @@ button:hover {
     border: 1px solid #334155;
 
     text-align: left;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .form-group {
@@ -560,11 +591,18 @@ button:hover {
     border-color: #60a5fa;
 
     box-shadow:
-        0 0 0 2px rgba(96, 165, 250, 0.1);
+        0 0 0 2px rgba(
+            96,
+            165,
+            250,
+            0.1
+        );
 }
 
 .form-group textarea {
     resize: vertical;
+
+    min-height: 120px;
 }
 
 .form-group small {
@@ -581,6 +619,14 @@ button:hover {
     width: 100%;
 
     margin-top: 5px;
+}
+
+.contact-form button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
 }
 
 #successMessage {
@@ -611,6 +657,298 @@ footer {
 }
 
 
+/* =================================================
+   AI ASSISTANT
+================================================= */
+
+/*
+   AI ka main button
+*/
+
+#ai-chat-button {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 50%;
+
+    background: #60a5fa;
+
+    color: #0f172a;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 26px;
+
+    cursor: pointer;
+
+    z-index: 99999;
+
+    box-shadow:
+        0 8px 25px rgba(
+            0,
+            0,
+            0,
+            0.4
+        );
+
+    transition: 0.3s;
+
+    user-select: none;
+}
+
+#ai-chat-button:hover {
+    transform: scale(1.1);
+
+    background: #93c5fd;
+}
+
+
+/*
+   AI CHAT WINDOW
+*/
+
+#ai-chat-box {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 95px;
+
+    width: 360px;
+
+    height: 460px;
+
+    max-width:
+        calc(100vw - 30px);
+
+    background: #111827;
+
+    border: 1px solid #334155;
+
+    border-radius: 16px;
+
+    display: none;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    z-index: 99998;
+
+    box-shadow:
+        0 15px 50px rgba(
+            0,
+            0,
+            0,
+            0.55
+        );
+}
+
+
+/*
+   AI HEADER
+*/
+
+.ai-header {
+    height: 60px;
+
+    background: #1e293b;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 15px;
+
+    color: white;
+
+    border-bottom:
+        1px solid #334155;
+}
+
+.ai-header-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 16px;
+}
+
+
+/*
+   CLOSE BUTTON
+*/
+
+#ai-close-button {
+    width: 32px;
+
+    height: 32px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+}
+
+#ai-close-button:hover {
+    background: #334155;
+
+    transform: none;
+}
+
+
+/*
+   AI MESSAGES
+*/
+
+#ai-messages {
+    flex: 1;
+
+    padding: 15px;
+
+    overflow-y: auto;
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.ai-message {
+    padding: 10px 12px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    max-width: 90%;
+
+    word-wrap: break-word;
+}
+
+.ai-message.bot {
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    margin-right: auto;
+}
+
+.ai-message.user {
+    background: #60a5fa;
+
+    color: #0f172a;
+
+    margin-left: auto;
+
+    font-weight: 500;
+}
+
+
+/*
+   AI INPUT
+*/
+
+.ai-input-area {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 12px;
+
+    background: #0b1120;
+
+    border-top:
+        1px solid #334155;
+}
+
+#ai-input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 11px 12px;
+
+    border: 1px solid #475569;
+
+    border-radius: 8px;
+
+    background: #1e293b;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+#ai-input:focus {
+    border-color: #60a5fa;
+}
+
+#ai-input::placeholder {
+    color: #94a3b8;
+}
+
+
+/*
+   AI SEND
+*/
+
+#ai-send-button {
+    padding: 10px 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #60a5fa;
+
+    color: #0f172a;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+#ai-send-button:hover {
+    background: #93c5fd;
+}
+
+
 /* =========================
    TABLET
 ========================= */
@@ -625,30 +963,40 @@ footer {
         padding: 60px 20px;
     }
 
+
     .hero h1 {
         font-size: 40px;
     }
+
 
     .hero h2 {
         font-size: 21px;
     }
 
+
     .hero-buttons {
         justify-content: center;
     }
 
+
     .hero-image img {
         width: 240px;
+
         height: 240px;
     }
 
+
     .skills {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
+
     .learning-card {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
+
 
     .about-card {
         flex-direction: column;
@@ -656,9 +1004,12 @@ footer {
         text-align: center;
     }
 
+
     .projects {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
+
 }
 
 
@@ -678,6 +1029,7 @@ footer {
         gap: 15px;
     }
 
+
     nav {
         gap: 12px;
 
@@ -686,258 +1038,71 @@ footer {
         justify-content: center;
     }
 
+
     nav a {
         font-size: 13px;
     }
+
 
     .hero h1 {
         font-size: 32px;
     }
 
+
     .hero h2 {
         font-size: 18px;
     }
+
 
     .hero-text > p:not(.welcome) {
         font-size: 16px;
     }
 
+
     .skills {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
+
 
     .about-card {
         padding: 25px;
     }
 
+
     .section {
         padding: 65px 20px;
     }
+
 
     .section-title {
         font-size: 30px;
     }
 
+
     .contact-form {
-        padding: 25px 20px;
+        padding: 25px;
     }
 
-    .hero-image img {
-        width: 210px;
-        height: 210px;
-    }
 
-}
-/* =========================
-   AI ASSISTANT
-========================= */
+    /* AI MOBILE */
 
-.ai-button {
-
-    position: fixed;
-
-    right: 25px;
-    bottom: 25px;
-
-    width: 60px;
-    height: 60px;
-
-    border-radius: 50%;
-
-    border: none;
-
-    background: #60a5fa;
-
-    color: #0f172a;
-
-    font-size: 25px;
-
-    cursor: pointer;
-
-    box-shadow: 0 5px 20px rgba(0,0,0,0.35);
-
-    z-index: 2000;
-
-}
-
-
-.ai-button:hover {
-
-    transform: scale(1.08);
-
-}
-
-
-.ai-chat {
-
-    position: fixed;
-
-    right: 25px;
-    bottom: 95px;
-
-    width: 350px;
-
-    max-width: calc(100vw - 40px);
-
-    height: 480px;
-
-    background: #0f172a;
-
-    border: 1px solid #334155;
-
-    border-radius: 15px;
-
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-
-    display: none;
-
-    flex-direction: column;
-
-    overflow: hidden;
-
-    z-index: 2000;
-
-}
-
-
-.ai-header {
-
-    padding: 18px;
-
-    background: #1e293b;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-}
-
-
-.ai-header strong {
-
-    color: #60a5fa;
-
-}
-
-
-.ai-header button {
-
-    background: transparent;
-
-    color: white;
-
-    padding: 0;
-
-    font-size: 25px;
-
-}
-
-
-.ai-messages {
-
-    flex: 1;
-
-    padding: 15px;
-
-    overflow-y: auto;
-
-}
-
-
-.ai-message {
-
-    padding: 10px 13px;
-
-    margin-bottom: 10px;
-
-    border-radius: 10px;
-
-    line-height: 1.5;
-
-    font-size: 14px;
-
-}
-
-
-.ai-message.bot {
-
-    background: #1e293b;
-
-    color: #e2e8f0;
-
-}
-
-
-.ai-message.user {
-
-    background: #60a5fa;
-
-    color: #0f172a;
-
-    margin-left: 30px;
-
-}
-
-
-.ai-input-area {
-
-    display: flex;
-
-    gap: 8px;
-
-    padding: 12px;
-
-    background: #1e293b;
-
-}
-
-
-.ai-input-area input {
-
-    flex: 1;
-
-    padding: 11px;
-
-    border-radius: 7px;
-
-    border: 1px solid #475569;
-
-    background: #0f172a;
-
-    color: white;
-
-    outline: none;
-
-}
-
-
-.ai-input-area button {
-
-    padding: 10px 15px;
-
-}
-
-
-@media (max-width: 500px) {
-
-    .ai-chat {
-
+    #ai-chat-button {
         right: 15px;
-        bottom: 90px;
 
-        width: calc(100vw - 30px);
-
-        height: 450px;
-
-    }
-
-    .ai-button {
-
-        right: 15px;
         bottom: 15px;
+    }
 
+
+    #ai-chat-box {
+        right: 15px;
+
+        bottom: 85px;
+
+        width:
+            calc(100vw - 30px);
+
+        height: 430px;
     }
 
 }

@@ -19,6 +19,305 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <style>
+
+        /* =========================
+           AI ASSISTANT
+        ========================= */
+
+        #ai-chat-button {
+
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 58px;
+            height: 58px;
+
+            border-radius: 50%;
+
+            background: #60a5fa;
+
+            color: #0f172a;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 26px;
+
+            cursor: pointer;
+
+            z-index: 99999;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+
+            transition: 0.3s;
+
+            user-select: none;
+        }
+
+
+        #ai-chat-button:hover {
+
+            transform: scale(1.1);
+
+            background: #93c5fd;
+        }
+
+
+        /* CHAT WINDOW */
+
+        #ai-chat-box {
+
+            position: fixed;
+
+            right: 25px;
+            bottom: 95px;
+
+            width: 360px;
+
+            height: 460px;
+
+            max-width: calc(100vw - 30px);
+
+            background: #111827;
+
+            border: 1px solid #334155;
+
+            border-radius: 16px;
+
+            display: none;
+
+            flex-direction: column;
+
+            overflow: hidden;
+
+            z-index: 99998;
+
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, 0.55);
+        }
+
+
+        /* HEADER */
+
+        .ai-header {
+
+            height: 60px;
+
+            background: #1e293b;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 15px;
+
+            color: white;
+
+            border-bottom: 1px solid #334155;
+        }
+
+
+        .ai-header-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 16px;
+        }
+
+
+        #ai-close-button {
+
+            width: 32px;
+            height: 32px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background: transparent;
+
+            color: white;
+
+            font-size: 24px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        #ai-close-button:hover {
+
+            background: #334155;
+        }
+
+
+        /* MESSAGES */
+
+        #ai-messages {
+
+            flex: 1;
+
+            padding: 15px;
+
+            overflow-y: auto;
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        .ai-message {
+
+            padding: 10px 12px;
+
+            margin-bottom: 10px;
+
+            border-radius: 10px;
+
+            max-width: 90%;
+
+            word-wrap: break-word;
+        }
+
+
+        .ai-message.bot {
+
+            background: #1e293b;
+
+            border: 1px solid #334155;
+
+            margin-right: auto;
+        }
+
+
+        .ai-message.user {
+
+            background: #60a5fa;
+
+            color: #0f172a;
+
+            margin-left: auto;
+
+            font-weight: 500;
+        }
+
+
+        /* INPUT AREA */
+
+        .ai-input-area {
+
+            display: flex;
+
+            gap: 8px;
+
+            padding: 12px;
+
+            background: #0b1120;
+
+            border-top: 1px solid #334155;
+        }
+
+
+        #ai-input {
+
+            flex: 1;
+
+            min-width: 0;
+
+            padding: 11px 12px;
+
+            border: 1px solid #475569;
+
+            border-radius: 8px;
+
+            background: #1e293b;
+
+            color: white;
+
+            outline: none;
+
+            font-size: 14px;
+        }
+
+
+        #ai-input:focus {
+
+            border-color: #60a5fa;
+        }
+
+
+        #ai-send-button {
+
+            padding: 10px 15px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #60a5fa;
+
+            color: #0f172a;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+        }
+
+
+        #ai-send-button:hover {
+
+            background: #93c5fd;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            #ai-chat-button {
+
+                right: 15px;
+
+                bottom: 15px;
+            }
+
+
+            #ai-chat-box {
+
+                right: 15px;
+
+                bottom: 85px;
+
+                width: calc(100vw - 30px);
+
+                height: 430px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
@@ -34,6 +333,7 @@
         <div class="logo">
             Harsh Raghav
         </div>
+
 
         <nav>
 
@@ -56,7 +356,7 @@
 
 
     <!-- =========================
-         HERO SECTION
+         HERO
     ========================== -->
 
     <section class="hero" id="home">
@@ -102,7 +402,6 @@
         </div>
 
 
-
         <div class="hero-image">
 
             <img
@@ -117,7 +416,7 @@
 
 
     <!-- =========================
-         ABOUT SECTION
+         ABOUT
     ========================== -->
 
     <section class="section" id="about">
@@ -172,7 +471,7 @@
 
 
     <!-- =========================
-         SKILLS SECTION
+         SKILLS
     ========================== -->
 
     <section class="section" id="skills">
@@ -202,7 +501,6 @@
             </div>
 
 
-
             <div class="skill-card">
 
                 <div class="skill-icon">
@@ -220,7 +518,6 @@
             </div>
 
 
-
             <div class="skill-card">
 
                 <div class="skill-icon">
@@ -236,7 +533,6 @@
                 </p>
 
             </div>
-
 
 
             <div class="skill-card">
@@ -262,7 +558,7 @@
 
 
     <!-- =========================
-         CURRENTLY LEARNING
+         LEARNING
     ========================== -->
 
     <section
@@ -280,9 +576,7 @@
 
             <div>
 
-                <span>
-                    📚
-                </span>
+                <span>📚</span>
 
                 <h3>
                     Web Development
@@ -296,12 +590,9 @@
             </div>
 
 
-
             <div>
 
-                <span>
-                    💻
-                </span>
+                <span>💻</span>
 
                 <h3>
                     Full Stack Development
@@ -315,12 +606,9 @@
             </div>
 
 
-
             <div>
 
-                <span>
-                    🤖
-                </span>
+                <span>🤖</span>
 
                 <h3>
                     AI Development
@@ -340,7 +628,7 @@
 
 
     <!-- =========================
-         PROJECTS SECTION
+         PROJECTS
     ========================== -->
 
     <section
@@ -355,8 +643,6 @@
 
         <div class="projects">
 
-
-            <!-- PROJECT 1 -->
 
             <div class="project-card">
 
@@ -380,21 +666,13 @@
 
                 <div class="project-tech">
 
-                    <span>
-                        HTML
-                    </span>
+                    <span>HTML</span>
 
-                    <span>
-                        CSS
-                    </span>
+                    <span>CSS</span>
 
-                    <span>
-                        JavaScript
-                    </span>
+                    <span>JavaScript</span>
 
-                    <span>
-                        GitHub
-                    </span>
+                    <span>GitHub</span>
 
                 </div>
 
@@ -409,8 +687,6 @@
             </div>
 
 
-
-            <!-- PROJECT 2 -->
 
             <div class="project-card">
 
@@ -433,13 +709,9 @@
 
                 <div class="project-tech">
 
-                    <span>
-                        Learning
-                    </span>
+                    <span>Learning</span>
 
-                    <span>
-                        Building
-                    </span>
+                    <span>Building</span>
 
                 </div>
 
@@ -460,7 +732,7 @@
 
 
     <!-- =========================
-         CONTACT SECTION
+         CONTACT
     ========================== -->
 
     <section
@@ -479,17 +751,12 @@
         </p>
 
 
-        <!-- FORMSPREE CONTACT FORM -->
-
         <form
             id="contactForm"
             class="contact-form"
             action="https://formspree.io/f/xeajjeyd"
             method="POST"
         >
-
-
-            <!-- NAME -->
 
             <div class="form-group">
 
@@ -512,9 +779,6 @@
             </div>
 
 
-
-            <!-- EMAIL -->
-
             <div class="form-group">
 
                 <label for="email">
@@ -536,9 +800,6 @@
             </div>
 
 
-
-            <!-- MESSAGE -->
-
             <div class="form-group">
 
                 <label for="message">
@@ -559,9 +820,6 @@
             </div>
 
 
-
-            <!-- SUBMIT BUTTON -->
-
             <button
                 type="submit"
                 id="submitButton"
@@ -569,8 +827,6 @@
                 Send Message 🚀
             </button>
 
-
-            <!-- SUCCESS / ERROR MESSAGE -->
 
             <p id="successMessage"></p>
 
@@ -595,15 +851,93 @@
 
 
 
-    <!-- =========================
+    <!-- ==================================================
+         AI ASSISTANT BUTTON
+    ================================================== -->
+
+    <div
+        id="ai-chat-button"
+        title="Open Harsh AI Assistant"
+    >
+        🤖
+    </div>
+
+
+
+    <!-- ==================================================
+         AI ASSISTANT CHAT
+    ================================================== -->
+
+    <div id="ai-chat-box">
+
+
+        <div class="ai-header">
+
+            <div class="ai-header-title">
+                🤖
+                <strong>
+                    Harsh AI Assistant
+                </strong>
+            </div>
+
+
+            <button
+                id="ai-close-button"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <div id="ai-messages">
+
+            <div class="ai-message bot">
+
+                Hi! 👋 I'm Harsh's AI Assistant.
+                Ask me about his skills, projects,
+                education or web development journey.
+
+            </div>
+
+        </div>
+
+
+
+        <div class="ai-input-area">
+
+            <input
+                type="text"
+                id="ai-input"
+                placeholder="Ask something..."
+                autocomplete="off"
+            >
+
+
+            <button
+                id="ai-send-button"
+                type="button"
+            >
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
          JAVASCRIPT
-    ========================== -->
+    ================================================== -->
 
     <script>
 
         /* =========================
            COMING SOON
-        ========================== */
+        ========================= */
 
         function comingSoon() {
 
@@ -617,7 +951,7 @@
 
         /* =========================
            CONTACT FORM
-        ========================== */
+        ========================= */
 
         const contactForm =
             document.getElementById("contactForm");
@@ -647,15 +981,12 @@
             document.getElementById("submitButton");
 
 
-
         contactForm.addEventListener(
             "submit",
             async function (event) {
 
                 event.preventDefault();
 
-
-                /* CLEAR OLD MESSAGES */
 
                 nameError.textContent = "";
 
@@ -666,14 +997,10 @@
                 successMessage.textContent = "";
 
 
-
                 let isValid = true;
 
 
-
-                /* =========================
-                   NAME VALIDATION
-                ========================== */
+                /* NAME */
 
                 if (
                     nameInput.value.trim() === ""
@@ -687,10 +1014,7 @@
                 }
 
 
-
-                /* =========================
-                   EMAIL VALIDATION
-                ========================== */
+                /* EMAIL */
 
                 const emailPattern =
                     /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -721,10 +1045,7 @@
                 }
 
 
-
-                /* =========================
-                   MESSAGE VALIDATION
-                ========================== */
+                /* MESSAGE */
 
                 if (
                     messageInput.value.trim() === ""
@@ -738,9 +1059,6 @@
                 }
 
 
-
-                /* STOP IF INVALID */
-
                 if (!isValid) {
 
                     return;
@@ -748,21 +1066,11 @@
                 }
 
 
-
-                /* =========================
-                   SENDING
-                ========================== */
-
                 submitButton.disabled = true;
 
                 submitButton.textContent =
                     "Sending...";
 
-
-
-                /* =========================
-                   FORMSPREE
-                ========================== */
 
                 const formData =
                     new FormData(contactForm);
@@ -774,14 +1082,18 @@
                         await fetch(
                             contactForm.action,
                             {
+
                                 method: "POST",
 
                                 body: formData,
 
                                 headers: {
+
                                     "Accept":
                                         "application/json"
+
                                 }
+
                             }
                         );
 
@@ -802,7 +1114,6 @@
 
                     }
 
-
                 }
 
                 catch (error) {
@@ -813,11 +1124,6 @@
                 }
 
 
-
-                /* =========================
-                   RESET BUTTON
-                ========================== */
-
                 submitButton.disabled = false;
 
                 submitButton.textContent =
@@ -826,305 +1132,338 @@
             }
         );
 
+
+
+        /* ==================================================
+           AI ASSISTANT
+        ================================================== */
+
+        const aiButton =
+            document.getElementById("ai-chat-button");
+
+        const aiChat =
+            document.getElementById("ai-chat-box");
+
+        const aiClose =
+            document.getElementById("ai-close-button");
+
+        const aiInput =
+            document.getElementById("ai-input");
+
+        const aiSend =
+            document.getElementById("ai-send-button");
+
+        const aiMessages =
+            document.getElementById("ai-messages");
+
+
+
+        /* OPEN */
+
+        aiButton.addEventListener(
+            "click",
+            function () {
+
+                aiChat.style.display = "flex";
+
+                aiInput.focus();
+
+            }
+        );
+
+
+
+        /* CLOSE */
+
+        aiClose.addEventListener(
+            "click",
+            function () {
+
+                aiChat.style.display = "none";
+
+            }
+        );
+
+
+
+        /* ADD MESSAGE */
+
+        function addAIMessage(
+            text,
+            type
+        ) {
+
+            const message =
+                document.createElement("div");
+
+            message.className =
+                "ai-message " + type;
+
+            message.textContent =
+                text;
+
+            aiMessages.appendChild(
+                message
+            );
+
+
+            aiMessages.scrollTop =
+                aiMessages.scrollHeight;
+
+        }
+
+
+
+        /* AI RESPONSE */
+
+        function getAIResponse(
+            question
+        ) {
+
+            const q =
+                question.toLowerCase();
+
+
+            if (
+                q.includes("hello") ||
+                q.includes("hi") ||
+                q.includes("hey")
+            ) {
+
+                return "Hi! 👋 I'm Harsh's AI Assistant. How can I help you?";
+
+            }
+
+
+            if (
+                q.includes("about") ||
+                q.includes("who is harsh") ||
+                q.includes("harsh")
+            ) {
+
+                return "Harsh Raghav is a BCA student and an aspiring Full Stack Developer. He is currently learning Web Development and exploring AI development.";
+
+            }
+
+
+            if (
+                q.includes("skill") ||
+                q.includes("technology") ||
+                q.includes("technologies")
+            ) {
+
+                return "Harsh's current skills include HTML, CSS, JavaScript and Git & GitHub.";
+
+            }
+
+
+            if (
+                q.includes("project") ||
+                q.includes("projects")
+            ) {
+
+                return "Harsh's current project is his personal portfolio website, built using HTML, CSS, JavaScript and GitHub. More projects are coming soon 🚀.";
+
+            }
+
+
+            if (
+                q.includes("education") ||
+                q.includes("study") ||
+                q.includes("bca")
+            ) {
+
+                return "Harsh is currently pursuing BCA and developing his skills in Web Development.";
+
+            }
+
+
+            if (
+                q.includes("web development") ||
+                q.includes("web dev")
+            ) {
+
+                return "Harsh is currently improving his HTML, CSS and JavaScript skills through practical projects.";
+
+            }
+
+
+            if (
+                q.includes("full stack") ||
+                q.includes("backend")
+            ) {
+
+                return "Harsh's long-term goal is to become a Full Stack Developer by learning frontend, backend and databases.";
+
+            }
+
+
+            if (
+                q.includes("ai") ||
+                q.includes("artificial intelligence")
+            ) {
+
+                return "Harsh is currently exploring AI Development and learning how AI can be integrated into modern web applications. 🤖";
+
+            }
+
+
+            if (
+                q.includes("github")
+            ) {
+
+                return "Harsh uses Git and GitHub for version control and publishing his web projects.";
+
+            }
+
+
+            if (
+                q.includes("contact") ||
+                q.includes("email") ||
+                q.includes("hire")
+            ) {
+
+                return "You can contact Harsh using the Let's Connect form at the bottom of this portfolio.";
+
+            }
+
+
+            if (
+                q.includes("learn") ||
+                q.includes("learning")
+            ) {
+
+                return "Harsh is currently learning Web Development, Full Stack Development and AI Development. 📚";
+
+            }
+
+
+            if (
+                q.includes("thank") ||
+                q.includes("thanks")
+            ) {
+
+                return "You're welcome! 😊 Feel free to ask me something else.";
+
+            }
+
+
+            return "I'm still learning 🤖. Try asking me about Harsh's skills, projects, education, Full Stack Development or AI.";
+
+        }
+
+
+
+        /* SEND MESSAGE */
+
+        function sendAIMessage() {
+
+            const question =
+                aiInput.value.trim();
+
+
+            if (question === "") {
+
+                return;
+
+            }
+
+
+            /* USER */
+
+            addAIMessage(
+                question,
+                "user"
+            );
+
+
+            aiInput.value = "";
+
+
+            /* THINKING */
+
+            const thinking =
+                document.createElement("div");
+
+            thinking.className =
+                "ai-message bot";
+
+            thinking.textContent =
+                "Thinking... 🤔";
+
+            thinking.id =
+                "ai-thinking";
+
+            aiMessages.appendChild(
+                thinking
+            );
+
+
+            aiMessages.scrollTop =
+                aiMessages.scrollHeight;
+
+
+            /* RESPONSE */
+
+            setTimeout(
+                function () {
+
+                    const oldThinking =
+                        document.getElementById(
+                            "ai-thinking"
+                        );
+
+
+                    if (oldThinking) {
+
+                        oldThinking.remove();
+
+                    }
+
+
+                    addAIMessage(
+                        getAIResponse(question),
+                        "bot"
+                    );
+
+                },
+                500
+            );
+
+        }
+
+
+
+        /* SEND BUTTON */
+
+        aiSend.addEventListener(
+            "click",
+            sendAIMessage
+        );
+
+
+
+        /* ENTER KEY */
+
+        aiInput.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+                    event.preventDefault();
+
+                    sendAIMessage();
+
+                }
+
+            }
+        );
+
     </script>
 
-<!-- AI ASSISTANT -->
-
-<button id="aiButton" class="ai-button">
-    🤖
-</button>
-
-<div id="aiChat" class="ai-chat">
-
-    <div class="ai-header">
-        <strong>Harsh AI Assistant</strong>
-
-        <button id="closeAI">
-            ×
-        </button>
-    </div>
-
-    <div id="aiMessages" class="ai-messages">
-
-        <div class="ai-message bot">
-            Hi! 👋 I'm Harsh's AI Assistant.
-            Ask me about his skills, projects or
-            web development journey.
-        </div>
-
-    </div>
-
-    <div class="ai-input-area">
-
-        <input
-            type="text"
-            id="aiInput"
-            placeholder="Ask something..."
-        >
-
-        <button id="aiSend">
-            Send
-        </button>
-
-    </div>
-
-</div>
-<script>
-/* =========================
-   AI ASSISTANT
-========================= */
-
-const aiButton = document.getElementById("aiButton");
-const aiChat = document.getElementById("aiChat");
-const closeAI = document.getElementById("closeAI");
-const aiInput = document.getElementById("aiInput");
-const aiSend = document.getElementById("aiSend");
-const aiMessages = document.getElementById("aiMessages");
-
-
-/* OPEN AI CHAT */
-
-aiButton.addEventListener("click", function () {
-
-    aiChat.classList.add("active");
-
-    aiInput.focus();
-
-});
-
-
-/* CLOSE AI CHAT */
-
-closeAI.addEventListener("click", function () {
-
-    aiChat.classList.remove("active");
-
-});
-
-
-/* SEND MESSAGE */
-
-function sendAIMessage() {
-
-    const userText = aiInput.value.trim();
-
-    if (userText === "") {
-        return;
-    }
-
-
-    /* USER MESSAGE */
-
-    const userMessage = document.createElement("div");
-
-    userMessage.className = "ai-message user";
-
-    userMessage.textContent = userText;
-
-    aiMessages.appendChild(userMessage);
-
-
-    /* CLEAR INPUT */
-
-    aiInput.value = "";
-
-
-    /* AI RESPONSE */
-
-    setTimeout(function () {
-
-        const botMessage = document.createElement("div");
-
-        botMessage.className = "ai-message bot";
-
-        botMessage.textContent =
-            getAIResponse(userText);
-
-        aiMessages.appendChild(botMessage);
-
-
-        /* SCROLL TO BOTTOM */
-
-        aiMessages.scrollTop =
-            aiMessages.scrollHeight;
-
-    }, 500);
-
-}
-
-
-/* SEND BUTTON */
-
-aiSend.addEventListener("click", function () {
-
-    sendAIMessage();
-
-});
-
-
-/* ENTER KEY */
-
-aiInput.addEventListener("keydown", function (event) {
-
-    if (event.key === "Enter") {
-
-        event.preventDefault();
-
-        sendAIMessage();
-
-    }
-
-});
-
-
-/* =========================
-   AI RESPONSES
-========================= */
-
-function getAIResponse(message) {
-
-    const text =
-        message.toLowerCase();
-
-
-    /* HELLO */
-
-    if (
-        text.includes("hello") ||
-        text.includes("hi") ||
-        text.includes("hey")
-    ) {
-
-        return "Hi! 👋 I'm Harsh's AI Assistant. How can I help you?";
-
-    }
-
-
-    /* ABOUT */
-
-    if (
-        text.includes("about") ||
-        text.includes("harsh")
-    ) {
-
-        return "Harsh Raghav is a BCA student and an aspiring Full Stack Developer. He is currently learning Web Development and exploring AI development.";
-
-    }
-
-
-    /* SKILLS */
-
-    if (
-        text.includes("skill") ||
-        text.includes("technolog")
-    ) {
-
-        return "Harsh's current skills include HTML, CSS, JavaScript and Git & GitHub. He is also learning Full Stack Development and AI Development.";
-
-    }
-
-
-    /* PROJECTS */
-
-    if (
-        text.includes("project")
-    ) {
-
-        return "Harsh's current project is his personal portfolio website, built using HTML, CSS, JavaScript and GitHub. More projects are coming soon 🚀.";
-
-    }
-
-
-    /* WEB DEVELOPMENT */
-
-    if (
-        text.includes("web development") ||
-        text.includes("web dev")
-    ) {
-
-        return "Harsh is currently improving his HTML, CSS and JavaScript skills through practical projects and is working toward becoming a Full Stack Developer.";
-
-    }
-
-
-    /* FULL STACK */
-
-    if (
-        text.includes("full stack") ||
-        text.includes("backend")
-    ) {
-
-        return "Harsh's long-term goal is to become a Full Stack Developer by learning frontend, backend and databases.";
-
-    }
-
-
-    /* AI */
-
-    if (
-        text.includes("ai") ||
-        text.includes("artificial intelligence")
-    ) {
-
-        return "Harsh is currently exploring AI Development and learning how AI can be integrated into modern web applications. 🤖";
-
-    }
-
-
-    /* GITHUB */
-
-    if (
-        text.includes("github")
-    ) {
-
-        return "You can find Harsh's portfolio project on GitHub. 🚀";
-
-    }
-
-
-    /* CONTACT */
-
-    if (
-        text.includes("contact") ||
-        text.includes("email") ||
-        text.includes("hire")
-    ) {
-
-        return "You can contact Harsh using the contact form on this portfolio. Scroll down to the Let's Connect section.";
-
-    }
-
-
-    /* LEARNING */
-
-    if (
-        text.includes("learn") ||
-        text.includes("learning")
-    ) {
-
-        return "Harsh is currently learning Web Development, Full Stack Development and AI Development. 📚";
-
-    }
-
-
-    /* THANK YOU */
-
-    if (
-        text.includes("thank") ||
-        text.includes("thanks")
-    ) {
-
-        return "You're welcome! 😊 Feel free to ask me anything about Harsh's portfolio.";
-
-    }
-
-
-    /* DEFAULT */
-
-    return "I'm still learning 🤖. Try asking me about Harsh's skills, projects, learning journey, Web Development, Full Stack Development or AI.";
-
-}
-</script>
 
 </body>
 
